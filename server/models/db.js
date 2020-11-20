@@ -28,3 +28,4 @@ mongoose.connect(uri,m_options,function(err){
 
 
 require('./user.model');
+require('./product.model');

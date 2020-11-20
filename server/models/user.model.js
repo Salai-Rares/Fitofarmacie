@@ -16,6 +16,10 @@ const jwt = require('jsonwebtoken');
          required:'Password can\'t be empty' ,
          minlength : [4,'Password must be atleast 4 character long']
      },
+     role: {
+         type:String,
+         required:'Role can\'t be empty'
+     },
      saltSecret: String
  });
 
@@ -43,7 +47,7 @@ userSchema.methods.verifyPassword = function(password) {
 };
 
 userSchema.methods.generateJwt = function(){
-    return jwt.sign({_id:this._id},
+    return jwt.sign({_id:this._id,role:this.role},
         process.env.JWT_SECRET, {
             expiresIn: process.env.JWT_EXP
         });

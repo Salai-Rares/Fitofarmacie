@@ -13,6 +13,7 @@ module.exports.verifyJwtToken = (req,res,next)=>{
                 if(err)
                   return res.status(500).send({auth : false, message : 'Token atuhentication failed.'})
                 else {req._id=decoded._id;
+                      req._role=decode._role;
                 next();}  
             });
     }
