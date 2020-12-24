@@ -22,7 +22,7 @@ module.exports.getProductById=async( req,res)=>{
     if(!ObjectId.isValid(req.params.id))
         return res.status(400).send(`No record with given id : ${req.params.id}`);
         const product = await Product.findById(req.params.id);
-        res.status(200).json({product});
+        res.status(200).json(product);
 }
 
     module.exports.updateProductById=async (req,res)=>{
