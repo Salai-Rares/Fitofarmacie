@@ -18,7 +18,7 @@ const jwt = require('jsonwebtoken');
      },
      role: {
          type:String,
-         required:'Role can\'t be empty'
+         
      },
      saltSecret: String
  });

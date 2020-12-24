@@ -4,7 +4,8 @@ const uri = process.env.MONGODB_URI;
 const m_options = {
   useNewUrlParser: true,
   useCreateIndex: true,
-  useUnifiedTopology: true
+  useUnifiedTopology: true,
+  useFindAndModify:false
 }
 mongoose.connect(uri,m_options,function(err){
   if(!err){
