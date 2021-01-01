@@ -14,6 +14,6 @@ router.post('/addproduct',storage,ctrlProduct.addProduct);
 router.get('/userProfile',jwtHelper.verifyJwtToken,ctrlUser.userProfile);
 router.get('/getproducts',ctrlProduct.getProducts);
 router.get('/getproducts/:id',ctrlProduct.getProductById);
-router.put('/getproducts/:id',ctrlProduct.updateProductById);
+router.put('/getproducts/:id',storage,ctrlProduct.updateProductById);
 router.delete('/getproducts/:id',ctrlProduct.deleteProductById);
 module.exports = router;

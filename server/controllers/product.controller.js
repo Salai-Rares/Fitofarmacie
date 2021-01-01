@@ -28,14 +28,24 @@ module.exports.getProductById=async( req,res)=>{
     module.exports.updateProductById=async (req,res)=>{
         if(!ObjectId.isValid(req.params.id))
         return res.status(400).send(`No record with given id : ${req.params.id}`);
-   
+        if(req.file){
+            var pro = {
+                name:req.body.name,
+                price:req.body.price,
+                quantity:req.body.quantity,
+                description:req.body.description,
+                image:'http://localhost:3000/images/'+req.file.filename
+            };
+        }
+        else{
         var pro = {
             name:req.body.name,
             price:req.body.price,
             quantity:req.body.quantity,
             description:req.body.description,
-            image:req.body.filename
+            
         };
+    }
         Product.findByIdAndUpdate(req.params.id, {$set:pro}, {new:true} , (err,doc)=>{
             if(!err) {res.send(doc) ;}
             else {console.log('Error in product update'+ JSON.stringify(err,undefined,2));}
