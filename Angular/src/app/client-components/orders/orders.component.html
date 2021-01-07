@@ -1,0 +1,16 @@
+
+  <div class="container">
+    <div *ngIf="products">
+      <div class="row card-group">
+      <div *ngFor="let product of products" class="col-lg-4 mt-2 products">
+
+        <p>{{product.name}}</p>
+        <br>
+        <p>{{product.address}}</p>
+        </div>
+
+          </div>
+
+        </div>
+      </div>
+

@@ -1,0 +1,59 @@
+
+<form [formGroup]="form" class="centerForm" (submit)="onSubmit()">
+  <label for="name">Name</label>
+  <input
+    type="text"
+    formControlName="name"
+    id="name"
+    class="form-control"
+    required
+  />
+  <!--<div *ngIf="createProductForm.submitted && !name.valid">
+    <label class="validation-message">This field is required</label>
+  </div>-->
+  <label for="quantity">Quantity</label>
+  <input
+    type="number"
+    id="quantity"
+    formControlName="quantity"
+    min="0"
+    class="form-control"
+    required
+  />
+  <label for="price">Price</label>
+  <input
+    type="number"
+    id="price"
+    formControlName="price"
+    min="0"
+    class="form-control"
+    required
+  />
+  <label for="description">Description</label>
+  <div class="form-group">
+    <textarea
+      type="text"
+      formControlName="description"
+      id="description"
+      class="form-control"
+      required
+    >
+    </textarea>
+  </div>
+  <div>
+    <input type="file" (change)="onFileSelect($event)" />
+  </div>
+  <div *ngIf="imageData" style="text-align: center;" class="mt-2 mb-2">
+
+    <img [src]="imageData" style="width: 200px; height: 300px; object-fit: cover;"  [alt]="form.value.name" />
+
+  </div>
+  <div style="text-align: center;">
+    <button type="submit" class="btn btn-primary">Create product</button>
+  </div>
+</form>
+
+<div class="success" *ngIf="showSucessMessage">Saved successfully.</div>
+<div class="alert" *ngIf="serverErrorMessages">
+  {{ serverErrorMessages }}
+</div>

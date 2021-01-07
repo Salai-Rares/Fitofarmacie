@@ -1,0 +1,16 @@
+form.centerForm{
+  max-width: 500px;
+  margin:auto;
+}
+.boxContainer {
+  display: table;
+}
+.box {
+  display: table-cell;
+  text-align: center;
+  vertical-align: bottom;
+}
+
+
+
+

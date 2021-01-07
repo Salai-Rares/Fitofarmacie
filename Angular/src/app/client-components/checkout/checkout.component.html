@@ -1,0 +1,27 @@
+<form
+class="centerForm "
+  #checkoutForm="ngForm"
+  (ngSubmit)="checkoutForm.valid && onSubmit(checkoutForm)">
+  <input
+  class="form-control mt-2 p-2"
+  type="text"
+  #name="ngModel"
+  [(ngModel)]="CartService.selectedCheckout.name"
+  name="name"
+  placeholder="Name"
+  required
+  [ngClass]="{ 'invalid-textbox': checkoutForm.submitted && !name.valid }"
+/>
+<input
+  type="text"
+  class="form-control mt-2"
+  #address="ngModel"
+  [(ngModel)]="CartService.selectedCheckout.address"
+  name="address"
+  placeholder="Address"
+  required
+  [ngClass]="{ 'invalid-textbox': checkoutForm.submitted && !address.valid }"
+/>
+
+<input type="submit" class="btn btn-primary mt-2" value="Checkout" />
+</form>

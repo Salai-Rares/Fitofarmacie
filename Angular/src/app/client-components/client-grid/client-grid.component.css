@@ -1,0 +1,9 @@
+.products:hover img{
+  transform: scale(0.90);
+  transition: all 300ms;
+}
+.card-img-top {
+  width: 100%;
+  height: 27vw;
+  object-fit: cover;
+}
